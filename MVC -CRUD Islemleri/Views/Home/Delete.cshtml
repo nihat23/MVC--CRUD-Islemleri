@@ -1,0 +1,48 @@
+﻿@model MVC__CRUD_Islemleri.Models.Urunler
+
+@{
+    ViewBag.Title = "Ürün Sil";
+}
+
+<h2>Ürün Sil</h2>
+
+<h3>Silmek İstediginizden eminmisiniz..?</h3>
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UrunAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UrunAd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UrunFiyat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UrunFiyat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UrunStok)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UrunStok)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-danger" /> |
+            @Html.ActionLink("Listeye Geri Dön", "Index")
+        </div>
+    }
+</div>

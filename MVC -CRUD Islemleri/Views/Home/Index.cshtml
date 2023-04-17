@@ -1,0 +1,63 @@
+﻿@model IEnumerable<MVC__CRUD_Islemleri.Models.Urunler>
+
+@{
+    ViewBag.Title = "ÜRÜNLER";
+
+
+}
+
+<h2>ÜRÜNLER Listesi </h2>
+
+@ViewBag.Kelime
+
+<p>
+    @Html.ActionLink("Yeni Ekle", "Create")
+   
+</p>
+
+<form action="/Home/Index" method="get" class="row">
+
+    <div class="col bg-primary">
+        <input id="Text1" type="text" name="kelime" size="40" placeholder="Aranacak Kelime giriniz.." />
+        <input id="Submit1" type="submit" value="Arama Yap" />
+
+    </div>
+</form>
+
+
+<table class="table table-hover table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UrunAd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UrunFiyat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UrunStok)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UrunAd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UrunFiyat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UrunStok)
+            </td>
+            <td>
+                @Html.ActionLink("Düzenle", "Edit", new { id = item.Id }, new { @class = "btn btn-success" }) |
+
+                @Html.ActionLink("Sil", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })|               
+
+            </td>
+        </tr>
+    }
+
+</table>
